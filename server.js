@@ -21,9 +21,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  res.render('maintenance.hbs');
-});
+// Maintenance middleware
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs');
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -37,14 +38,6 @@ hbs.registerHelper('screamIt', (text) => {
 });
 
 app.get('/', (req, res) => {
-  // res.send('<h1>Hello Express!</h1>');
-  // res.send({
-  //   name: 'Andrew',
-  //   likes: [
-  //     'Biking',
-  //     'Cities'
-  //   ]
-  // });
   res.render('home.hbs', {
     pageTitle: 'Home Page',
     welcomeMessage: 'Welcome to my new website'
